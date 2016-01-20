@@ -1,0 +1,5 @@
+{
+    "require": {
+        "rastor/jira-client": "~0.3"
+    }
+}
