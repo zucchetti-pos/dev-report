@@ -10,7 +10,9 @@ $api = new JiraClient('https://coderockr.atlassian.net', $user, $password);
 
 $search = $api->issue()->search('project = Compufour AND affectedVersion is EMPTY AND fixVersion is EMPTY AND type in (Bug, Improvement, "New Feature", Sub-task) AND (labels not in (Roadmap) OR labels is EMPTY) AND status in ("In Progress", Review, Testing) ORDER BY priority ASC');
 $now = new Datetime;
-echo "Resumo do dia ", $now->format('d/m/Y H:i:s'), "\n\n";
+echo "Resumo do dia ", $now->format('d/m/Y H:i:s'), "\n\n\n";
+
+echo $search->getTotal(), " tarefas em aberto", "\n\n";
 
 foreach ($search->getList() as $key => $issue) {
     echo 'Código: ', $issue->getKey(), "\n";
