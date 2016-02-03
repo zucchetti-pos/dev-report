@@ -23,7 +23,6 @@ foreach ($search->getList() as $key => $issue) {
     echo 'Prioridade:', $issue->getPriority()->getName(), "\n";
     echo 'Criado em :' , $issue->getCreated()->format('d/m/Y H:i:s'), "\n";
     echo 'Última atualização em :' , $issue->getUpdated()->format('d/m/Y H:i:s'), "\n";
-    // $interval = $now->diff($issue->getUpdated());
     if (getWeekdayDifference($issue->getUpdated(), $now) >= 2) {
         echo "URGENTE: esta tarefa precisa ser quebrada e entregue hoje. Nenhuma tarefa pode ficar mais de 2 dias parada", "\n";
     }
