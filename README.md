@@ -5,6 +5,9 @@ Script para enviar relatórios das tarefas do Jira
 
     export JIRA_USER=user
     export JIRA_PASSWORD=password
+    export GITHUB_USER=user
+    export GITHUB_PASSWORD=password
+    export GITHUB_REPO=repo
 
 E executar
     
