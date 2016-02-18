@@ -40,8 +40,9 @@ $activity = $client->api('repo')->statistics($githubUser, $githubRepo);
 echo "Commits \n\n";
 
 foreach ($activity as $a) {
-    if ($a['weeks'][71]['c'] > 0) {
-        echo $a['author']['login'], " Total de commits: ", $a['total'], '. Commits na última semana (começando em '. DateTime::createFromFormat('U', $a['weeks'][71]['w'])->format('d/m/Y').' ):' .  $a['weeks'][71]['c'], "\n";
+    $lastWeek = count($a['weeks'])-1;
+    if ($a['weeks'][$lastWeek]['c'] > 0) {
+        echo $a['author']['login'], " Total de commits: ", $a['total'], '. Commits na última semana (começando em '. DateTime::createFromFormat('U', $a['weeks'][$lastWeek]['w'])->format('d/m/Y').' ):' .  $a['weeks'][$lastWeek]['c'], "\n";
     }
 }
 echo "\n\nOBS: se o nome de alguém não aparece acima não significa que ela não está trabalhando e sim que está commitando em branches diferentes da master pois o Github só entrega estatísticas desta branch. A ausência de alguém na lista acima indica que a sua tarefa está demorando mais de dois dias para terminar e ser aprovada no master o que reforça a necessidade de quebrar a tarefa em pedaços menores.\n";
