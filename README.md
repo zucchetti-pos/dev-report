@@ -12,3 +12,7 @@ Script para enviar relatórios das tarefas do Jira
 E executar
     
     php index.php
+
+Para enviar por e-mail basta executar
+
+    php index.php | mail -s "Report `date`" email@domain.com
